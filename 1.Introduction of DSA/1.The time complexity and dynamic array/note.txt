@@ -1,0 +1,11 @@
+what is time complexity ?
+
+==> How many time take to run a program is called time complexity it is denoted by Big O . 
+    Grammar :
+    1. we have to count its worst case .
+    2. ignore the constant value .
+
+1s means-- 10^8 operation they can run in that 1s(10^7)
+2s ---2*10^7
+
+O(10^7)----->n
