@@ -6,7 +6,7 @@ void fun(int* &a)
 }
 int main ()
 {
-    int*a= 1;
+    int*a= new int(1);
     fun(a);
     cout<<*a<<endl;
     return 0;
