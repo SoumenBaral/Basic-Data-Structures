@@ -82,6 +82,7 @@ void insert_tail(Node* head,Node*&tail,int v)
         return; 
     }
     tail->next=newNode;
+    tail=newNode;
 }
 int main ()
 {
