@@ -24,6 +24,38 @@ void insert_tail(Node *&head, Node *&tail, int val)
     tail->next = newNode;
     tail = newNode;
 }
+void sorted(Node* head)
+{
+    bool flag=false;
+    Node* Max=head;
+    Node* Min= head;
+    for(Node* i=head;i->next!=NULL;i=i->next)
+    {
+        for(Node* j=i->next;j!=NULL;j=j->next)
+        {
+            if(i->val<j->val){
+            swap(i->val,j->val);
+            }
+
+             
+        }
+    }
+} 
+ 
+void print_max_min(Node* head)
+{
+    Node*tmp=head;
+    cout<<tmp->val<<" ";
+    while (tmp->next!=NULL)
+    {
+        tmp=tmp->next;
+       
+
+    }
+     cout<<tmp->val<<endl;
+
+}
+
 int main ()
 {
 
@@ -37,6 +69,8 @@ int main ()
             break;
         insert_tail(head, tail, val);
     }
+    sorted(head);
+    print_max_min(head);
     
     return 0;
 }
