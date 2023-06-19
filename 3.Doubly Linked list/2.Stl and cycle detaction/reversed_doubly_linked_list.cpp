@@ -44,6 +44,8 @@ void reverse(Node* head,Node* tail)
        i=i->next;
        j=j->Previous;
     }
+    swap(i->val,j->val);
+
 }
 int main ()
 {
@@ -53,7 +55,7 @@ int main ()
     Node* c = new Node(40);
     Node* d = new Node(50);
 
-    Node* tail=d;
+    Node* tail=a;
     head->next=a;
     a->Previous=head;
     a->next=b;
