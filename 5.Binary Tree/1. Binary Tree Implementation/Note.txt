@@ -1,0 +1,3 @@
+preOrder ---> root -> left->right
+postOrder---> left->right->root
+InOrder ----> left->root->right
