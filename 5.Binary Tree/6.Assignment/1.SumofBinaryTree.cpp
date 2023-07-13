@@ -41,18 +41,28 @@ Node* input_Binary_tree(){
     
 return root;
 }
-int sum = 0;
-void print(Node* root){
-    if(root == NULL)return;
-    // cout<<root->val<<" ";
-    sum +=root->val; 
-    print(root->left);
-    print(root->right);
-}
+// int sum = 0;
+// // void print(Node* root){
+// //     if(root == NULL)return;
+// //     // cout<<root->val<<" ";
+// //     sum +=root->val; 
+// //     print(root->left);
+// //     print(root->right);
+// // }
 int main ()
 {
     Node* root = input_Binary_tree();
-    print(root);
+    int sum ;
+    queue<Node*>q;
+    if(root)q.push(root);
+    while (!q.empty())
+    {
+        Node* f = q.front();
+        q.pop();
+        sum += f->val;
+        if(f->left)q.push(f->left);
+        if(f->right)q.push(f->right);
+    }
     cout<<sum<<endl;
     return 0;
 }
