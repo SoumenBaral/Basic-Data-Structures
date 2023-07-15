@@ -98,7 +98,7 @@ int main ()
     level_Order_print(root);
    bool isExist = search( root,43);
    if(isExist)cout<<endl<<"Found"<<endl;
-   else cout<<endl<<"NOT Found";
+   else cout<<endl<<"NOT Found"; 
 
     return 0;
 }
