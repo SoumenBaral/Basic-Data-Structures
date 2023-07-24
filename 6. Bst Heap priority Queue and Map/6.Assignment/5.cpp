@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Student
 {
 public:
@@ -13,72 +14,84 @@ public:
         this->name = name;
     }
 };
-class cmp {
+class cmp
+{
 public:
-    bool operator()(const Student& a, const Student& b) {
-        if (a.marks == b.marks) {
-            return a.roll < b.roll; 
+    bool operator()(Student a, Student b)
+
+    {
+        if (a.marks == b.marks)
+        {
+            return a.roll > b.roll;
         }
-        return a.marks > b.marks;
+        return a.marks < b.marks;
     }
 };
-
 
 int main()
 {
     int n;
     cin >> n;
+
     priority_queue<Student, vector<Student>, cmp> pq;
-    for (int i = 0; i < n; i++)
+
+    for (int i = 0; i < n; ++i)
     {
         string name;
         int roll, marks;
         cin >> name >> roll >> marks;
-        Student obj(name, roll, marks);
-        pq.push(obj);
+        Student student(name, roll, marks);
+        pq.push(student);
     }
+
     int T;
     cin >> T;
+
     while (T--)
     {
-        int val;
-        cin >> val;
-        if (val == 0)
+        int command;
+        cin >> command;
+
+        if (command == 0)
         {
-        string name;
-        int roll, marks;
-        cin >> name >> roll >> marks;
-        Student obj(name, roll, marks);
-        pq.push(obj);
-        cout << pq.top().name <<" "<< pq.top().roll <<" "<<pq.top().marks << endl;
+            string name;
+            int roll, marks;
+            cin >> name >> roll >> marks;
+            Student student(name, roll, marks);
+            pq.push(student);
+            cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks << endl;
         }
-        else if (val == 1)
+        else if (command == 1)
         {
             if (!pq.empty())
             {
-               cout << pq.top().name <<" "<< pq.top().roll <<" "<<pq.top().marks << endl;
+                cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks << endl;
             }
             else
             {
                 cout << "Empty" << endl;
             }
         }
-        else if (val == 2)
+        else if (command == 2)
         {
             if (!pq.empty())
             {
                 pq.pop();
                 if (!pq.empty())
                 {
-                    cout << pq.top().name <<" "<< pq.top().roll <<" "<<pq.top().marks << endl;
+                    cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks << endl;
                 }
                 else
                 {
                     cout << "Empty" << endl;
                 }
             }
-           
+            else
+            {
+                cout << "Empty" << endl;
+            }
         }
     }
+
     return 0;
 }

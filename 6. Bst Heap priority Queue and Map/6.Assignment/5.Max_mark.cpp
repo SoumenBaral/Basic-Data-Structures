@@ -13,22 +13,22 @@ public:
         this->name = name;
     }
 };
-class cmp {
-public:
-    bool operator()(const Student& a, const Student& b) {
-        if (a.marks == b.marks) {
-            return a.roll < b.roll; 
-        }
-        return a.marks > b.marks;
-    }
+class cmp{
+    public:
+    bool operator()(Student a, Student b){
+        if(a.marks == b.marks) 
+            return a.roll > b.roll;
+        else 
+            return a.marks < b.marks;
+    } 
 };
-
 
 int main()
 {
+    priority_queue<Student, vector<Student>, cmp> pq;
     int n;
     cin >> n;
-    priority_queue<Student, vector<Student>, cmp> pq;
+    
     for (int i = 0; i < n; i++)
     {
         string name;
@@ -45,12 +45,12 @@ int main()
         cin >> val;
         if (val == 0)
         {
-        string name;
-        int roll, marks;
-        cin >> name >> roll >> marks;
-        Student obj(name, roll, marks);
-        pq.push(obj);
-        cout << pq.top().name <<" "<< pq.top().roll <<" "<<pq.top().marks << endl;
+            string name;
+            int roll, marks;
+            cin >> name >> roll >> marks;
+            Student obj(name, roll, marks);
+            pq.push(obj);
+            cout << pq.top().name <<" "<< pq.top().roll <<" "<<pq.top().marks << endl;
         }
         else if (val == 1)
         {
@@ -77,6 +77,10 @@ int main()
                     cout << "Empty" << endl;
                 }
             }
+            else
+                {
+                    cout << "Empty" << endl;
+                }
            
         }
     }
